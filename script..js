@@ -1,35 +1,38 @@
-const modal = document.getElementById('modal')
-const modalopener = document.getElementById('modal-opener')
-const closeBtn = document.getElementById('close')
-const body = document.querySelector('body')
+document.addEventListener('DOMContentLoaded', function () {
+  const modal = document.getElementById('modal');
+  const modalOpener = document.getElementById('modal-opener');
+  const closeBtn = document.getElementById('close');
+  const form = document.querySelector('.form');
 
-// const error = document.getElementsByClassName('Error-Message')
-// const login = document.getElementById('login')
-// const username = document.getElementById('username').value;
-// const password = document.getElementById('password').value;
+  // When form is submitted, show modal (e.g., forgot password flow)
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      // For demo, show modal on submit
+      modal.style.display = 'block';
+    });
+  }
 
+  // If the "Forgot Password?" button exists, make it open the modal without submitting the form
+  if (modalOpener) {
+    modalOpener.addEventListener('click', function (e) {
+      // prevent form submission if the button is inside the form
+      e.preventDefault();
+      modal.style.display = 'block';
+    });
+  }
 
-// when clicked, modal opens
-modalopener.onclick = function() {
-    modal.style.display = 'block';
-}
-// to close modal
-closeBtn.onclick = function() {
-    modal.style.display = 'none';
-}
-// close when user clicks outside the modal
-window.onclick = function(event) {
-    if (event.target == body) {
-        modal.style.display = 'none';
+  // Close modal via close button
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function () {
+      modal.style.display = 'none';
+    });
+  }
+
+  // Close modal when clicking outside content
+  window.addEventListener('click', function (event) {
+    if (event.target === modal) {
+      modal.style.display = 'none';
     }
-}
-
-// login.addEventListener('click'){
-//     if (username === 'username' && password === 'password'){
-//         alert('Submitted')
-//     }
-//     // error Message
-//     else{
-//         error.innerHTML = 'Username or Password is Incorrect'
-//     }
-// }
+  });
+});
