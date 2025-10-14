@@ -1,53 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Modals</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <div class="background">
-      <form id="form">
-        <label for="username">USERNAME</label><br />
-        <input
-          id="username"
-          type="text"
-          placeholder="&nbsp;Username"
-          required />
-        <br /><br />
-        <label for="password">PASSWORD</label><br />
-        <input
-          id="password"
-          type="password"
-          placeholder="&nbsp;Password"
-          required />
-        <br /><br />
-        <input id="login" type="button" value="Log In" />
-        <div class="Error-Message"></div>
-        <br /><br />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modal Example</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
 
-        <!-- modal trigger -->
-        <button id="modal-opener" class="modal-opener">
-          Forgot Your Password?
-        </button>
-      </form>
+  <div class="background">
+      <form class="form">
+        <label for="username">USERNAME</label>
+        <input type="text" placeholder="Username" />
+        <label for="password">PASSWORD</label>
+        <input type="password" placeholder="Password" />
+        <br />
+     <button type="submit">Login</button>
+    <button id="modal-opener" type="button">Forgot Password?</button>
+    </form>
+  </div>
+<!--modal-->
+  <div id="modal" class="modal">
+    <div class="modal-content">
+      <span id="close">&times;</span>
+      <h2>Calm Down and Relax!</h2>
+      <p>Sit Down and carefully try to remember your password</p>
+      <button>Thanks</button>
     </div>
-    <!-- modal -->
-    <div id="modal" class="modal">
-      <div class="modal-content">
-        <span id="close">&times;</span>
-        <h2>Create new password</h2>
-        <img src="/pictures/coolimages.png" alt="" />
-        <form>
-          <label for="password">Old Password</label>
-          <input type="password" placeholder="&nbsp;old password" />
-          <label for="password">New password</label>
-          <input type="password" placeholder="&nbsp;new password" />
-          <input type="button" value="submit" />
-        </form>
-      </div>
-    </div>
-    <script src="./script..js"></script>
-  </body>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
 </html>
